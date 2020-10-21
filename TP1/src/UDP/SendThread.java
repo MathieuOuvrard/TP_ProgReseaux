@@ -1,8 +1,22 @@
+/***
+ * SendThread
+ * Thread that manage the sending of messages of ClientUDP
+ * Attribute:
+ * int port
+ * InetAdress group
+ * String name
+ * MulticastSocket client socket
+ * Date: 21/10/20
+ * Authors: OUVRARD/GIRARD
+ */
+ 
 package UDP;
 
 import java.io.*;
 import java.net.*;
 import java.util.*;
+
+
 
 public class SendThread extends Thread
 	{
@@ -19,6 +33,11 @@ public class SendThread extends Thread
 			this.clientSocket = clientSocket;
 			
 		}
+		
+		/**
+		*  run method
+		*  manage the sending of messages of ClientUDP
+		**/
 		
 		public void run()
 		{
@@ -50,9 +69,6 @@ public class SendThread extends Thread
 							try
 							{
 								DatagramPacket packet = new DatagramPacket(buffer, buffer.length, group, port);
-								
-								//packet.setData(buffer);
-								
 								clientSocket.send(packet);
 							}
 							
@@ -69,11 +85,23 @@ public class SendThread extends Thread
 					}
 		}
 		
+		/**
+		*  print method
+		*  print the string in parameter
+		*  @param print String
+		**/
+		
 		public static synchronized void print(String str)
 			{
 				System.out.print(str);
 			}
-	
+		
+		/**
+			*  println method
+			*  print the string in parameter and return to line
+			*  @param println String
+			**/
+		
 		public static synchronized void println(String str)
 		{
 			System.out.println(str);

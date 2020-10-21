@@ -1,8 +1,9 @@
 /***
  * ClientThread
- * Example of a TCP server
- * Date: 14/12/08
- * Authors:
+ * The server create one of this thread for each client who connects 
+ * The tchat will save messages in a file
+ * Date: 21/10/20
+ * Authors: OUVRARD/GIRARD
  */
 
 package stream;
@@ -20,7 +21,9 @@ public class ClientThread
 	}
 
  	/**
-  	* receives a request from client then sends an echo to the client
+  	* receives the messages from client 
+  	* and send it to all other connected clients.
+  	* Write the historic of the conversation too
   	* @param clientSocket the client socket
   	**/
 	public void run() {

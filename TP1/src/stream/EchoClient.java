@@ -1,8 +1,9 @@
 /***
  * EchoClient
- * Example of a TCP client 
- * Date: 10/01/04
- * Authors:
+ * Client of the TCP chat
+ * The tchat will save messages in a file
+ * Date: 21/10/20
+ * Authors: OUVRARD/GIRARD
  */
 package stream;
 
@@ -17,7 +18,8 @@ public class EchoClient {
  
   /**
   *  main method
-  *  accepts a connection, receives a message from client then sends an echo to the client
+  *  Open the TCP client 
+  *  @param EchoClient address, port
   **/
     public static void main(String[] args) throws IOException {
 

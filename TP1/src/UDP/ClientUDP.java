@@ -1,4 +1,12 @@
-package UDP;
+/***
+ * ClientUDP
+ * Client of the UDP chat
+ * 
+ * Date: 21/10/20
+ * Authors: OUVRARD/GIRARD
+ */
+ 
+ package UDP;
 
 import java.io.*;
 import java.net.*;
@@ -6,6 +14,11 @@ import java.util.*;
 
 public class ClientUDP
 {	
+  /**
+  *  main method
+  *  Open the UDP client and manage the receiving of the messages
+  *  @param ClientUDP multicastAddress, port
+  **/
 	public static void main(String[] args) throws IOException
 			{
 				MulticastSocket clientSocket = null;
@@ -41,6 +54,13 @@ public class ClientUDP
 				DatagramPacket joinPacket = new DatagramPacket(message.getBytes(),message.length(), 
 				group, port);
 				clientSocket.send(joinPacket);
+				
+				     /**
+					 * SendThread is a thread that manage to send the
+					 * messages to all client connected
+					 * 
+					 * @see SendThread
+					 */
 				
 				try
 				{
@@ -78,11 +98,23 @@ public class ClientUDP
 				
 			}
 			
+            /**
+			*  print method
+			*  print the string in parameter
+			*  @param print String
+			**/
+			
 			public static synchronized void print(String str)
 			{
 				System.out.print(str);
 			}
-	
+			
+			/**
+			*  println method
+			*  print the string in parameter and return to line
+			*  @param println String
+			**/
+			
 			public static synchronized void println(String str)
 			{
 				System.out.println(str);

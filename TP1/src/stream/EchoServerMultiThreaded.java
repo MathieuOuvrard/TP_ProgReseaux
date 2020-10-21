@@ -1,8 +1,9 @@
 /***
- * EchoServer
- * Example of a TCP server
- * Date: 10/01/04
- * Authors:
+ * EchoClient
+ * Server of the TCP chat
+ * The tchat will save messages in a file
+ * Date: 21/10/20
+ * Authors: OUVRARD/GIRARD
  */
 
 package stream;
@@ -17,6 +18,7 @@ public class EchoServerMultiThreaded  {
 
  	/**
   	* main method
+  	* Open the server
 	* @param EchoServer port
   	* 
   	**/
@@ -42,6 +44,13 @@ public class EchoServerMultiThreaded  {
 					Socket clientSocket = listenSocket.accept();
 					System.out.println("Connexion from:" + clientSocket.getInetAddress());
 					connectedClients.add(clientSocket);
+
+					 /**
+					 * ClientThread is a thread that manage to share the
+					 * messages to all client connected except the sender 
+					 * 
+					 * @see ClientThread
+					 */
 
 					ClientThread ct = new ClientThread(clientSocket);
 					ct.start();
