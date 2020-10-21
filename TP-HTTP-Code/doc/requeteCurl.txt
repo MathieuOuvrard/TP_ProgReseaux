@@ -1,0 +1,5 @@
+curl -T doc/index.html -X POST localhost:3000/unepage.html
+curl -T doc/index.html localhost:3000/unepage.html
+curl -X DELETE localhost:3000/unepage.html
+curl -i --head localhost:3000/unepage.html
+curl localhost:3000/index.html
